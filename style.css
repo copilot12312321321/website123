@@ -1,169 +1,96 @@
-/* General resets */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+/* Reset & base */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
+body, html { height:100%; color:#fff; background:#000; scroll-behavior:smooth; overflow-x:hidden; }
+
+/* Background container */
+.background-container {
+  position: fixed; top: 0; left: 0; width:100%; height:100%; z-index:-1;
 }
-body, html {
-  height: 100%;
-  color: #fff;
-  background: #000;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-.background {
-  background: url('images/ascendify.gif') no-repeat center center/cover;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  filter: brightness(0.4);
+.background-img {
+  width:100%; height:100%; object-fit:cover; filter: brightness(0.4);
 }
 
-/* Navbar */
+/* Navbar styling */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 50px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-bottom: 1px solid #660000;
-  position: sticky;
-  top: 0;
-  z-index: 99;
+  position: sticky; top: 0; z-index:99;
+  background: rgba(0,0,0,0.8); border-bottom:1px solid #660000;
+  display:flex; align-items:center; justify-content:center; padding:18px 20px;
 }
-.navbar .logo {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ff0000;
+.navbar .logo { position:absolute; left:50px; font-size:28px; font-weight:bold; color:#ff0000; }
+.navbar nav ul {
+  list-style:none; display:flex; gap:25px;
 }
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
+.navbar nav ul li a {
+  color:#fff; text-decoration:none; font-size:16px; padding:10px 20px;
+  border-radius:6px; transition:0.3s ease;
 }
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-.navbar a:hover {
-  background: #ff0000;
-  box-shadow: 0 0 10px #ff0000;
+.navbar nav ul li a:hover {
+  background:#ff0000; box-shadow:0 0 10px #ff0000;
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 100px 20px 60px;
-}
+/* Hero & scrolling text */
+.hero { text-align:center; padding:120px 20px 60px; }
 .scroll-text {
-  font-size: 48px;
+  font-size:64px; font-weight:bold;
   background: linear-gradient(to right, #ff0000, #660000, #ff0000);
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-size:200% auto; color:transparent;
+  background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   animation: scrollText 4s linear infinite;
 }
 @keyframes scrollText {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% { background-position:0% center; }
+  100% { background-position:200% center; }
 }
-.hero p {
-  font-size: 18px;
-  color: #ccc;
-  margin-top: 10px;
-}
+.hero p { font-size:18px; color:#ccc; margin-top:15px; }
 
-/* About and external */
-.about, .external-info {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-.about h2, .external-info h2 {
-  font-size: 26px;
-  margin-bottom: 15px;
-  color: #ff4c4c;
-}
+/* Content sections */
+section { max-width:1000px; margin:0 auto; padding:40px 20px; line-height:1.6; }
+section h2 { font-size:26px; color:#ff4c4c; margin-bottom:15px; }
 
 /* Features */
 .features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 60px 20px;
-  gap: 30px;
-  opacity: 0;
-  transition: opacity 1s ease;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:30px;
+  opacity:0; transition:opacity 1s ease;
 }
-.features.show {
-  opacity: 1;
-}
+.features.show { opacity:1; }
 .feature-box {
-  background: rgba(30, 0, 0, 0.8);
-  border: 1px solid #990000;
-  padding: 30px;
-  border-radius: 15px;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.feature-box h3 {
-  color: #ff4c4c;
-  margin-bottom: 15px;
-  font-size: 22px;
-}
-.feature-box p {
-  font-size: 15px;
-  color: #ddd;
+  background:rgba(30,0,0,0.8); border:1px solid #990000;
+  padding:30px; border-radius:15px; width:300px; text-align:center;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 .feature-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px #ff0000;
+  transform:translateY(-10px); box-shadow:0 0 20px #ff0000;
 }
+.feature-box h3 { color:#ff4c4c; margin-bottom:15px; font-size:22px; }
+.feature-box p { font-size:15px; color:#ddd; }
+
+/* Pricing */
+.pricing { text-align:center; padding-bottom:60px; }
+.pricing h2 { margin-bottom:30px; }
+.pricing-box {
+  display:inline-block; background:rgba(30,0,0,0.8); border:1px solid #990000;
+  border-radius:15px; padding:25px; width:250px; margin:10px;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pricing-box:hover {
+  transform:translateY(-8px); box-shadow:0 0 15px #ff0000;
+}
+.pricing-box h3 { font-size:20px; margin-bottom:10px; color:#ff4c4c; }
+.pricing-box p { color:#ccc; font-size:15px; }
 
 /* FAQ */
-.faq {
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: auto;
-}
-.faq h2 {
-  text-align: center;
-  font-size: 26px;
-  color: #ff4c4c;
-  margin-bottom: 30px;
-}
-.faq-item {
-  margin-bottom: 15px;
-}
+.faq h2 { text-align:center; margin-bottom:30px; }
+.faq-item { margin-bottom:15px; }
 .faq-question {
-  width: 100%;
-  text-align: left;
-  padding: 15px;
-  background-color: #1a0000;
-  border: 1px solid #660000;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  width:100%; text-align:left; padding:15px; background:#1a0000;
+  border:1px solid #660000; border-radius:8px; color:#fff; cursor:pointer;
+  transition:background 0.3s ease, box-shadow 0.3s ease;
 }
 .faq-question:hover {
-  background-color: #330000;
-  box-shadow: 0 0 10px #ff0000;
+  background:#330000; box-shadow:0 0 10px #ff0000;
 }
 .faq-answer {
-  padding: 10px 15px;
-  background-color: #240000;
-  border-left: 3px solid #ff0000;
-  display: none;
-  color: #ccc;
+  overflow:hidden; max-height:0; transition:max-height 0.5s ease;
+  background:#240000; border-left:3px solid #ff0000; padding:0 15px;
+  color:#ccc;
 }
