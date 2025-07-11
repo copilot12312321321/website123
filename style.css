@@ -1,1 +1,117 @@
-test
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  color: #fff;
+  background: #000;
+  scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background {
+  background: url('images/ascendify.gif') no-repeat center center/cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: brightness(0.4);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #660000;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.navbar .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px #900000;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ccc;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 30px;
+}
+
+.feature-box {
+  background: rgba(30, 0, 0, 0.8);
+  border: 1px solid #990000;
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box h3 {
+  color: #ff4c4c;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.feature-box p {
+  font-size: 15px;
+  color: #ddd;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #ff0000;
+}
