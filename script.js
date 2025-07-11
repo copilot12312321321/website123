@@ -1,27 +1,18 @@
-// scroll to features
+// Smooth scroll nav
 document.querySelectorAll('nav a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-// FAQ expand
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const ans = btn.nextElementSibling;
-    const open = ans.style.maxHeight && ans.style.maxHeight !== '0px';
-    document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = null);
-    if (!open) ans.style.maxHeight = ans.scrollHeight + 'px';
-  });
-});
-
-// External expand
-document.querySelectorAll('.ext-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const ans = btn.nextElementSibling;
-    const open = ans.style.maxHeight && ans.style.maxHeight !== '0px';
-    document.querySelectorAll('.ext-answer').forEach(a => a.style.maxHeight = null);
-    if (!open) ans.style.maxHeight = ans.scrollHeight + 'px';
+// Dropdown animation logic for FAQ and External
+document.querySelectorAll('.dropdown-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const container = button.parentElement;
+    const isOpen = container.classList.contains('open');
+    document.querySelectorAll('.dropdown-container').forEach(c => c.classList.remove('open'));
+    if (!isOpen) container.classList.add('open');
   });
 });
